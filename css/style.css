@@ -1,0 +1,196 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+* { /* el * es toda la pagina */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400; /*  grosor de la letra  */
+    font-size: 16px; /* tamaño de la letra */
+    line-height: 1.7; /* espacio entre textos */
+    color: #777;
+    padding: 30px; 
+
+}
+
+.header {
+    height: 95vh; /* porcentaje de la pagina que ocupa */
+    background-image: linear-gradient(
+        to right bottom,
+         #7ed56fc4,
+         #28b485c9) , 
+         url(/img/hero.jpg); /* linear-gradient(desde donde, primer-color, segundo-color) */
+    background-size: cover;
+    background-position: top; /* se coloca fija la parte superior del fondo(se queda siempre visible) */
+    position: relative;
+    clip-path: polygon(0 0,100% 0,100% 75%,0 100%); /* (x  y, x  y) */
+
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;;
+}
+
+.logo {
+    height: 35px;
+
+}
+
+
+.text-box {
+    position: absolute;
+    top:40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;
+    margin-bottom: 60px;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 900;
+    letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    
+    animation-timing-function: ease-out;
+    /*
+    animation-delay: 1s;
+        animation-iteration-count: 3;
+
+    */
+}
+
+.heading-primary-sub {
+    display: block; /* block: coloca en el renglon de abajo  */
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 7px; /* espaciado entre letra y letra */
+    animation: moveInRight 2s ease-out; /* ease-out: se acelera la animacion al final......ease-in acelera el inicio */
+
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    60% {
+        transform: translateX(-100px) rotate(180deg)
+    }
+
+    80%{
+        transform: translateX(10px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight { 
+    0% { /* inicio de la animacion */
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80%{ /* al 80% de la animacion */
+        transform: translateX(-10px)
+    }
+
+    100% { /* final de la animacion */
+        opacity: 1;
+        transform: translate(0)
+    }
+}
+
+@keyframes moveInBottom { 
+    0% { /* inicio de la animacion */
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+
+    100% { /* final de la animacion */
+        opacity: 1;
+        transform: translate(0)
+    }
+}
+
+.btn:link,/* link es como esta por defecto */
+.btn:visited { /* visited es cuando ya fue clickeado */
+    text-transform: uppercase; /* transforma el texto en mayusculas */
+    text-decoration: none; /* le elimina el subrayado, color original, etc */
+    padding: 15px 40px; /* (altura x ancho) */
+    display: inline-block; /* inline-block: lo deja en la misma linea que el resto respetando el borde con el resto */
+    border-radius: 100px; /* redondea los bordes */
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover { /* hover es cuando estas encima */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+} 
+
+.btn:active { /* active es cuando esta siendo clickeado */
+    transform: translateY(-1px);
+    box-shadow: 0 5px 1px rgba(0, 0, 0, .2);
+
+
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom .4s ease-out .75s; /* animation: "nombre de la animacion" "duracion de la animacion" "la aceleracion" "Diley" */
+    animation-fill-mode: backwards;
+}
