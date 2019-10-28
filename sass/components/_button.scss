@@ -1,0 +1,80 @@
+.btn{
+
+    &:link,/* link es como esta por defecto */
+    &:visited { /* visited es cuando ya fue clickeado */
+        text-transform: uppercase; /* transforma el texto en mayusculas */
+        text-decoration: none; /* le elimina el subrayado, color original, etc */
+        padding: 1.5rem 4rem; /* (altura x ancho) */
+        display: inline-block; /* inline-block: lo deja en la misma linea que el resto respetando el borde con el resto */
+        border-radius: 10rem; /* redondea los bordes */
+        transition: all .2s;
+        position: relative;
+        font-size: $default-font-size;
+    }
+
+    &:hover { /* hover es cuando estas encima */
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        //background-color: darken($color-white, 15%);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    } 
+
+    &:active { /* active es cuando esta siendo clickeado */
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem .1rem rgba($color-black, .2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--animated {
+        animation: moveInBottom .4s ease-out .75s; /* animation: "nombre de la animacion" "duracion de la animacion" "la aceleracion" "Diley" */
+        animation-fill-mode: backwards;
+    } 
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all .2sec;
+    }
+    &:hover{
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        transform: translateY(-.3rem);
+    }
+    &:active{
+        box-shadow: 0 .5rem .7rem rgba($color-black, .3);
+        transform: translateY(0);
+    }
+}

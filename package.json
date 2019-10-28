@@ -1,0 +1,23 @@
+{
+  "name": "design",
+  "version": "1.0.0",
+  "description": "landing page ",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joacocorti/design.git"
+  },
+  "author": "Joaquin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joacocorti/design/issues"
+  },
+  "homepage": "https://github.com/joacocorti/design#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  }
+}
